@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const registerService = async (data) => {
   try {
-    const res = await axios.post('http://localhost:4000/api/auth/register', data)
+    const res = await axios.post('https://mp-server-eo7u.onrender.com/api/auth/register', data)
     return res.data
   } catch (error) {
     console.log(error)
@@ -11,7 +11,7 @@ export const registerService = async (data) => {
 
 export const loginService = async (credentials) => {
   try {
-    const res = await axios.post('http://localhost:4000/api/auth/login', credentials)
+    const res = await axios.post('https://mp-server-eo7u.onrender.com/api/auth/login', credentials)
     return res.data
   } catch (error) {
     console.log(error)
@@ -20,7 +20,7 @@ export const loginService = async (credentials) => {
 
 export const getProfileService = async (id) => {
   try {
-    const res = await axios.get(`http://localhost:4000/api/auth/profile/${id}`)
+    const res = await axios.get(`https://mp-server-eo7u.onrender.com/api/auth/profile/${id}`)
     return res.data
   } catch (error) {
     console.log(error)
@@ -29,7 +29,7 @@ export const getProfileService = async (id) => {
 
 export const editAliasService = async (data) => {
   try {
-    const res = await axios.post('http://localhost:4000/api/auth/editAlias', data)
+    const res = await axios.post('https://mp-server-eo7u.onrender.com/api/auth/editAlias', data)
     return res.data
   } catch (error) {
     console.log(error)
