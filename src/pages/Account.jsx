@@ -25,7 +25,7 @@ const Account = () => {
     <header className='pt-2 sm:pt-4'>
       <Toaster position='bottom-center' toastOptions={{ style: { background: '#3B82F6', color: 'white', width: '800px', marginBottom: '100px' } }} />
       <BtnGoBack />
-      <div className='bg-slate-50 shadow-2xl mx-4 md:mx-32 xl:mx-96 min-w-fit sm:max-w-full h-full border rounded-xl mt-4 sm:mt-12 divide-y divide-slate-300'>
+      <div className='bg-slate-50 shadow-2xl mx-4 md:mx-32 xl:mx-96 min-w-fit sm:max-w-full h-full border rounded-xl mt-4 divide-y divide-slate-300'>
         <h2 className='p-8 font-semibold'>Datos de tu cuenta</h2>
         <div className='p-8 flex gap-4'>
           <PiUser className='w-6 h-6' />

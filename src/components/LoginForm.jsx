@@ -7,7 +7,6 @@ const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
 
   const navigate = useNavigate()
 
@@ -33,7 +32,6 @@ const LoginForm = () => {
       return setError('Todos los campos son requeridos!')
     }
 
-    setIsLoading(true)
     setToken(res.data.token)
     setId(res.data.id)
     setName(res.data.username)
@@ -77,26 +75,12 @@ const LoginForm = () => {
             placeholder='*****'
           />
         </div>
-        {
-        isLoading
-          ? (
-            <button
-              type='submit'
-              className='w-full px-4 py-2 text-white bg-green-700 rounded-md'
-            >
-              Ingresando...
-            </button>
-            )
-          : (
-            <button
-              type='submit'
-              className='w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
-            >
-              Ingresar
-            </button>
-
-            )
-       }
+        <button
+          type='submit'
+          className='w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
+        >
+          Ingresar
+        </button>
         <div className='text-center mt-2'>
           {error && (
             <span className='text-lg font-semibold text-red-500'>{error}</span>
