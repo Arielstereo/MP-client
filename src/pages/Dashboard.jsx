@@ -31,7 +31,7 @@ const Dashboard = () => {
 
   return (
     <header className='pt-8'>
-      <div className='h-full mt-48 sm:mt-32 max-w-fit p-10 md:p-16 mx-auto bg-slate-50 border rounded-xl shadow-2xl'>
+      <div className='h-full mt-32 sm:mt-32 max-w-fit p-10 md:p-16 mx-auto bg-slate-50 border rounded-xl shadow-2xl'>
         <div className='ml-36 md:ml-96'>
           <Link
             to='/dashboard/movements'

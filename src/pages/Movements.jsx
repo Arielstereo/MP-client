@@ -69,8 +69,8 @@ const Movements = () => {
               </div>
               )
             : (
-              <div className='mt-4 mx-96'>
-                <h2 className='text-2xl text-bold mb-8'>No hay movimientos</h2>
+              <div className=' mx-auto p-2 sm:p-0'>
+                <h2 className='text-xl md:text-2xl text-bold'>No hay movimientos</h2>
               </div>
               )
         }

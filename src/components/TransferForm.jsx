@@ -21,7 +21,6 @@ const TransferForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const transfer = await transferService({ id, alias, cash })
-    console.log(transfer)
 
     if (transfer.status === 'failed') {
       return setError(transfer.message)

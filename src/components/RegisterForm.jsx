@@ -51,7 +51,7 @@ const RegisterForm = () => {
         </div>
         <div className='mb-4 mx-auto'>
           <label htmlFor='alias' className='block mb-2 text-sm font-medium text-gray-700'>Alias</label>
-          <input onChange={(e) => setAlias(e.target.value)} id='password' type='password' className='w-48 px-4 py-2 text-gray-700 bg-gray-200 border border-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent' placeholder='MY.ALIAS' />
+          <input onChange={(e) => setAlias(e.target.value)} id='alias' type='text' className='w-48 px-4 py-2 text-gray-700 bg-gray-200 border border-slate-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent' placeholder='MY.ALIAS' />
         </div>
         <button type='submit' className='w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'>Registrarse</button>
         <div className='text-center mt-2'>

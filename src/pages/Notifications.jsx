@@ -18,7 +18,7 @@ const Notifications = () => {
   return (
     <div className='pt-4'>
       <BtnGoBack />
-      <div className='bg-slate-50 mt-4 p-4 md:p-16 mx-auto max-w-fit rounded-xl shadow-xl'>
+      <div className='bg-slate-50 mt-4 p-6 md:p-16 mx-auto max-w-fit rounded-xl shadow-xl'>
         <table className='min-w-full divide-y divide-slate-300'>
           {lastsNotifications.length > 0
             ? (

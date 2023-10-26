@@ -26,10 +26,10 @@ const Navbar = () => {
       <div className='container mx-auto py-4'>
         <nav className='flex items-center mx-2 justify-between h-16'>
           <div className='flex items-center ml-2 gap-2 lg:gap-4'>
-            <div className='lg:text-2xl text-white text-bold border border-white rounded-full p-2'>
+            <div className='text-xl lg:text-2xl text-white text-bold border border-white rounded-full p-2'>
               <PiUser />
             </div>
-            <span className='lg:text-xl text-bold text-slate-100'>
+            <span className='text-xl text-bold text-slate-100'>
               Hola, {username[0].toUpperCase() + username.substring(1)}
             </span>
             <button onClick={() => setIsVisible(!isVisible)} className='hidden sm:block lg:text-2xl text-white text-bold mt-1 cursor-pointer'>

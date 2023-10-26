@@ -8,7 +8,7 @@ import { useAuthStore } from '../../store/auth'
 const MobileBar = () => {
   const logout = useAuthStore((state) => state.setLogout)
   return (
-    <div className='block sm:hidden absolute bottom-0 w-full py-8 bg-white shadow-2xl'>
+    <div className='block sm:hidden fixed bottom-0 left-0 right-0 w-full py-8 bg-white shadow-2xl'>
       <ul className='flex gap-12 justify-center items-center'>
         <li><Link to='/dashboard/account'><PiUser className='w-6 h-6' /></Link></li>
         <li><Link to='/dashboard/movements'><BsCardText className='w-6 h-6' /></Link></li>
