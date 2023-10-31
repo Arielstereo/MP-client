@@ -8,7 +8,7 @@ const Movements = () => {
   const operations = useOperationsStore((state) => state.operations)
   const userId = useAuthStore((state) => state.id)
   const movements = operations.filter(movement => movement.type === 'Transferencia' ? movement.receptorId !== userId : movement.id === userId)
-  const lastsMovements = movements.slice(-8).sort((a, b) => a.date < b.date)
+  const lastsMovements = movements.slice(-5).sort((a, b) => a.date < b.date)
 
   return (
     <div className='pt-4'>

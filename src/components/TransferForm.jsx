@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { transferService } from '../services/operationsService'
+import { notificationService, transferService } from '../services/operationsService'
 import { useAuthStore } from '../../store/auth'
 import { useOperationsStore } from '../../store/operations'
 import { useNavigate } from 'react-router-dom'
@@ -16,7 +16,6 @@ const TransferForm = () => {
 
   const id = useAuthStore((state) => state.id)
   const setOperation = useOperationsStore((state) => state.setOperations)
-  const setNotification = useOperationsStore((state) => state.setNotifications)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -37,14 +36,9 @@ const TransferForm = () => {
       type: transfer.type,
       date: transfer.date
     })
-    setNotification({
-      receptor: transfer.receptor,
-      remite: transfer.remite,
-      receptorId: transfer.receptorId,
-      remiteId: transfer.remiteId,
-      cash: transfer.cash,
-      date: transfer.date
-    })
+
+    const msg = `${transfer.cash}`
+    await notificationService({ sender: transfer.remiteId, receiver: transfer.receptorId, message: msg, date: transfer.date })
 
     setTimeout(() => {
       navigate('/dashboard/movements')
@@ -65,7 +59,7 @@ const TransferForm = () => {
             }}
             type='text'
             placeholder='Ingresa el alias'
-            className='p-2 mb-4 border border-slate-400 rounded-lg w-72 sm:w-96 bg-slate-200'
+            className='p-2 mb-4 border border-slate-400 rounded-lg w-72 bg-slate-200'
           />
         </div>
         <div className='flex items-center justify-center'>
@@ -86,7 +80,7 @@ const TransferForm = () => {
           <button
             type='submit'
             disabled
-            className='flex gap-2 justify-center items-center p-2 mb-4 px-8 bg-green-600 text-slate-200 font-bold border-none rounded-md transition duration-300 w-72 sm:w-96'
+            className='flex gap-1 justify-center items-center py-2 mb-4 bg-green-600 text-slate-200 font-bold border-none rounded-md transition duration-300 w-72'
           >
             <UseAnimations animation={loading} size={28} strokeColor='white' /> Cargando
           </button>
@@ -94,7 +88,7 @@ const TransferForm = () => {
         : (
           <button
             type='submit'
-            className={alias && cash ? ('p-2 mb-4 px-8 bg-blue-500 hover:bg-blue-400 text-white border-none rounded-md cursor-pointer transition duration-300 w-72 sm:w-96') : ('invisible')}
+            className={alias && cash ? ('p-2 mb-4 px-8 bg-blue-500 hover:bg-blue-400 text-white border-none rounded-md cursor-pointer transition duration-300 w-72') : ('invisible')}
           >
             Transferir
           </button>

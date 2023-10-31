@@ -17,3 +17,21 @@ export const depositService = async (data) => {
     console.log(error)
   }
 }
+
+export const notificationService = async (data) => {
+  try {
+    const res = await axios.post('https://mp-server-eo7u.onrender.com/api/operations/notification', data)
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const loadNotification = async (id) => {
+  try {
+    const res = await axios.get(`https://mp-server-eo7u.onrender.com/api/operations/getNotifications/${id}`)
+    return res.data
+  } catch (error) {
+    console.log(error)
+  }
+}
