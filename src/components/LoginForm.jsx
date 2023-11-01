@@ -2,15 +2,11 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { loginService } from '../services/loginService'
 import { useAuthStore } from '../../store/auth'
-import UseAnimations from 'react-useanimations'
-import loading from 'react-useanimations/lib/loading'
 
 const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
-  console.log(isLoading)
 
   const navigate = useNavigate()
 
@@ -79,27 +75,12 @@ const LoginForm = () => {
             placeholder='*****'
           />
         </div>
-        {
-        isLoading
-          ? (
-            <button
-              type='submit'
-              disabled
-              className='flex gap-1 justify-center items-center w-full py-2 bg-green-600 text-slate-200 font-bold border-none rounded-md transition duration-300'
-            >
-              <UseAnimations animation={loading} size={28} strokeColor='white' /> Cargando
-            </button>
-            )
-          : (
-            <button
-              onClick={() => setIsLoading(true)}
-              type='submit'
-              className='w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
-            >
-              Ingresar
-            </button>
-            )
-       }
+        <button
+          type='submit'
+          className='w-full px-4 py-2 text-white bg-blue-500 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2'
+        >
+          Ingresar
+        </button>
         <div className='text-center mt-2'>
           {error && (
             <span className='text-lg font-semibold text-red-500'>{error}</span>
