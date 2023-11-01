@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 const Notifications = () => {
   const id = useAuthStore((state) => state.id)
   const [notifications, setNotifications] = useState([])
+  const lastsMovements = notifications.slice(-4).sort((a, b) => a.date > b.date)
 
   useEffect(() => {
     loadNotification(id).then((data) => {
@@ -18,11 +19,11 @@ const Notifications = () => {
   return (
     <div className='pt-4'>
       <BtnGoBack />
-      <div className='bg-slate-50 mt-4 p-6 md:p-16 mx-auto max-w-fit rounded-xl shadow-xl'>
+      <div className='bg-slate-50 mt-4 md:mt-0 p-6 md:p-8 mx-auto max-w-fit rounded-xl shadow-xl'>
         <table className='min-w-full divide-y divide-slate-300'>
-          {notifications.length > 0
+          {lastsMovements.length > 0
             ? (
-                notifications.slice(0, 4).map((notification, i) => (
+                lastsMovements.map((notification, i) => (
                   <tbody key={i}>
                     <tr>
                       <td className='py-8 px-6'>

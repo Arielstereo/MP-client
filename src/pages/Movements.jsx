@@ -8,17 +8,17 @@ const Movements = () => {
   const operations = useOperationsStore((state) => state.operations)
   const userId = useAuthStore((state) => state.id)
   const movements = operations.filter(movement => movement.type === 'Transferencia' ? movement.receptorId !== userId : movement.id === userId)
-  const lastsMovements = movements.slice(-5).sort((a, b) => a.date < b.date)
+  const lastsMovements = movements.slice(-4).sort((a, b) => a.date > b.date)
 
   return (
     <div className='pt-4'>
       <BtnGoBack />
-      <div className='bg-slate-50 mt-2 p-4 md:p-16 mx-auto max-w-fit rounded-xl shadow-xl'>
+      <div className='bg-slate-50 mt-2 md:mt-0 p-4 md:p-10 mx-auto max-w-fit rounded-xl shadow-xl'>
         {
           movements.length > 0
             ? (
               <div className='my-4'>
-                <h2 className='text-lg md:text-2xl text-bold mb-4 md:mb-8'>Ultimos movimientos</h2>
+                <h2 className='text-lg md:text-2xl text-bold mb-4'>Ultimos movimientos</h2>
                 <div className='flex h-full'>
                   <table className='divide-y divide-slate-300'>
                     {lastsMovements?.map((operation, i) => (

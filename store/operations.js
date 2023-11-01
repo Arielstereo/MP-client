@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { createJSONStorage, persist } from 'zustand/middleware'
 
 export const useOperationsStore = create(
 
@@ -9,7 +9,8 @@ export const useOperationsStore = create(
       setOperations: (operation) => { set((state) => ({ operations: [...state.operations, operation] })) }
     }),
     {
-      name: 'operations'
+      name: 'operations',
+      storage: createJSONStorage(() => sessionStorage)
     }
   )
 
